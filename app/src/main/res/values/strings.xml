@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Notes</string>
+    <string name="tab_item_icon">tab_item_icon</string>
+    <string name="search_notes">Search notes</string>
+    <string name="search_bar_close">search_bar_close</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="folder">folder</string>
+    <string name="add_note">add_note</string>
+    <string name="start_typing">Start typing</string>
+    <string name="title">Title</string>
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
+    <string name="select_all">select all</string>
+    <string name="delete">delete</string>
+    <string name="move">move</string>
+    <string name="close_selection">close selection</string>
+    <string name="theme_image">theme_image</string>
+    <string name="characters">%1$d characters</string>
+    <string name="is_pinned">is_pinned</string>
+    <string name="delete_folder">delete_folder</string>
+    <string name="folder_pinned">folder_pinned</string>
+    <string name="image_folder_pinned">image_folder_pinned</string>
+</resources>

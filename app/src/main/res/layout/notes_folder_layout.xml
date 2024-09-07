@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="0dp"
+    android:clickable="true"
+    android:id="@+id/card_main"
+    app:cardBackgroundColor="@drawable/selector_folder_card_color"
+    android:layout_marginHorizontal="@dimen/_4sdp"
+    android:padding="@dimen/_6sdp"
+    app:cardCornerRadius="12dp"
+    >
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="@dimen/_8sdp"
+
+        >
+        <TextView
+            android:id="@+id/tv_folder_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_11ssp"
+            android:layout_marginEnd="@dimen/_2sdp"
+            android:textColor="@drawable/selector_folder_text_color"
+            />
+        <ImageView
+            android:id="@+id/im_folder_pinned"
+            android:layout_width="@dimen/_12sdp"
+            android:layout_height="@dimen/_12sdp"
+            android:src="@drawable/ic_pin"
+            android:visibility="gone"
+            android:contentDescription="@string/image_folder_pinned"
+            app:tint="@color/colorYellowPrimary"
+            />
+    </LinearLayout>
+
+
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.views.NotesFragment">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        app:elevation="0dp"
+        android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"
+        android:background="@color/colorWhiteSecondary"
+        >
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_collapseMode="pin"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:contentScrim="@color/colorWhiteSecondary"
+
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:fitsSystemWindows="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_search_bar"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:padding="0dp"
+                    app:boxCornerRadiusBottomEnd="90dp"
+                    app:boxCornerRadiusBottomStart="90dp"
+                    app:boxCornerRadiusTopEnd="90dp"
+                    app:boxCornerRadiusTopStart="90dp"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:cursorColor="@color/colorYellowPrimary"
+                    app:hintEnabled="false"
+                    app:hintTextColor="@color/colorWhiteThird"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_search_bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/colorWhiteThird"
+                        android:backgroundTintMode="screen"
+                        android:drawableStart="@drawable/ic_search"
+                        android:drawablePadding="@dimen/_8sdp"
+                        android:gravity="center_vertical"
+                        android:hint="@string/search_notes"
+                        android:importantForAutofill="no"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:padding="@dimen/_8sdp"
+                        android:paddingVertical="@dimen/_10sdp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/colorGrayPrimary"
+                        android:textCursorDrawable="@drawable/cursor_drawable"
+                        android:textSize="@dimen/_11ssp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <ImageButton
+                    android:id="@+id/btn_close_search_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@string/search_bar_close"
+                    android:src="@drawable/ic_close"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@id/til_search_bar"
+                    app:layout_constraintEnd_toEndOf="@id/til_search_bar"
+                    app:layout_constraintTop_toTopOf="@id/til_search_bar" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_folders"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_8sdp"
+            >
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_folders"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/_16sdp"
+                app:cardElevation="0dp"
+                android:layout_marginEnd="@dimen/_4sdp"
+                android:layout_marginBottom="@dimen/_4sdp"
+                app:strokeWidth="0dp"
+                app:strokeColor="@android:color/transparent"
+                app:cardBackgroundColor="@color/colorWhiteSecondary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btn_all_folders"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                >
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_folders"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    />
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btn_all_folders"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_4sdp"
+
+                android:clickable="true"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="5dp"
+                app:layout_constraintBottom_toBottomOf="@id/card_folders"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/card_folders"
+                app:layout_constraintTop_toTopOf="@id/card_folders">
+
+                <ImageButton
+                    android:id="@+id/btn_folders"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:backgroundTint="@color/white"
+                    android:contentDescription="@string/folder"
+                    android:padding="@dimen/_6sdp"
+                    android:src="@drawable/ic_folder" />
+            </com.google.android.material.card.MaterialCardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/ns_notes"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_notes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:foregroundGravity="center"
+            android:paddingHorizontal="@dimen/_12sdp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            />
+
+    </androidx.core.widget.NestedScrollView>
+    <ImageView
+        android:id="@+id/tv_no_notes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ill_empty_box"
+        android:scaleType="centerInside"
+        android:visibility="gone"
+        app:layout_anchor="@id/ns_notes"
+        app:layout_anchorGravity="center"
+    />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_add_note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/add_note"
+        app:layout_anchorGravity="end|bottom"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:layout_marginBottom="@dimen/_16sdp"
+        app:tint="@android:color/white"
+        android:src="@drawable/ic_add"
+        app:backgroundTint="@color/colorYellowPrimary"
+        app:layout_anchor="@id/ns_notes"
+        />
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppBarSelectionMode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:visibility="gone"
+        app:menuAlignmentMode="auto"
+        app:menu="@menu/menu_notes_selection"
+        app:navigationIcon="@drawable/ic_close"
+        app:navigationIconTint="@color/black"
+        app:paddingBottomSystemWindowInsets="false"
+        app:backgroundTint="@color/white">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation_selection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:labelVisibilityMode="unlabeled"
+            app:itemIconTint="@color/black"
+            android:layout_marginEnd="@dimen/_12sdp"
+            app:elevation="0dp"
+            />
+
+    </com.google.android.material.bottomappbar.BottomAppBar>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
